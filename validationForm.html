@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Registration Form</title>
+        <script>
+            function validateForm(){
+                let username=document.getElementById("username").value;
+                let email=document.getElementById("email").value;
+                let phone=document.getElementById("phone").value;
+                let emailPattern=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+                let phonePattern=/^[6-9][0-9]{9}$/;
+                let password=document.getElementById("password").value;
+                let confirmpassword=document.getElementById("confirmpassword").value;
+                if(username==""){
+                    alert("Username cannot be empty.");
+                    return false;
+                }
+                if(email==""){
+                    alert("Email cannot be empty.");
+                    return false;
+                }
+                if(!emailPattern.test(email)){
+                    alert("Invalid Email ID");
+                    return false;
+                }
+                if(phone==""){
+                    alert("Phone number cannot be empty.");
+                    return false;
+                }
+                if(!phonePattern.test(phone)){
+                    alert("Invalid Phone number");
+                    return false;
+                }
+                if(password.length<6){
+                    alert("Password should contain atleat 6 characters");
+                    return false;
+                }
+                if(password!=confirmpassword){
+                    alert("Password didn't match");
+                    return false;
+                }
+                alert("Registration successful");
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <h2><b>Registration Form</b></h2>
+        <form onsubmit="return validateForm()">
+            <label for="username">Username:</label><br>
+            <input type="text" Placeholder="Enter username" id="username" name="username"><br><br>
+            <label for="email">Email-Id</label><br>
+            <input type="email" Placeholder="Enter Email-Id" id="email" name="email"><br><br>
+            <label for="phone">Phone Number</label><br>
+            <input type="tel" Placeholder="Enter Phone Number" id="phone" name="phone"><br><br>
+            <label for="password">Password</label><br>
+            <input type="password" Placeholder="Enter password" id="password" name="password"><br><br>
+            <label for="confirmpassword">Confirm Password</label><br>
+            <input type="password" Placeholder="confirm password" id="confirmpassword" name="confirmpassword"><br><br>
+            <input type="submit" value="Register">
+        </form>
+    </body>
+</html>
